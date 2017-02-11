@@ -5,6 +5,7 @@ import numpy as np
 from sklearn import linear_model
 import sklearn.metrics as sm
 from sklearn.preprocessing import PolynomialFeatures
+# import matplotlib.pyplot as plt
 
 filename = sys.argv[1]
 X = []
@@ -23,12 +24,12 @@ num_test = len(X) - num_training
 # Training data
 # X_train = np.array(X[:num_training]).reshape((num_training, -1))
 X_train = np.array(X[:num_training])
-y_train = np.array(y[:num_training]).reshape((num_training, -1))
+y_train = np.array(y[:num_training]).ravel()
 
 # Test data
 # X_test = np.array(X[num_training:]).reshape((num_test, -1))
 X_test = np.array(X[num_training:])
-y_test = np.array(y[num_training:]).reshape((num_test, -1))
+y_test = np.array(y[num_training:]).ravel()
 
 
 linear_regressor = linear_model.LinearRegression()
@@ -45,7 +46,6 @@ ridge_regressor.fit(X_train, y_train)
 # Predict the output
 y_test_pred = linear_regressor.predict(X_test)
 y_test_pred_ridge = ridge_regressor.predict(X_test)
-
 
 print ("LINEAR:")
 print (
@@ -98,5 +98,5 @@ print ("\nPolynomial regression:\n", poly_linear_model.predict(poly_datapoint))
 
 # Stochastic Gradient Descent regressor
 sgd_regressor = linear_model.SGDRegressor(loss='huber', n_iter=50)
-sgd_regressor.fit(X_train, y_train.reshape((-1,)))
+sgd_regressor.fit(X_train, y_train)
 print ("\nSGD regressor:\n", sgd_regressor.predict(datapoint))

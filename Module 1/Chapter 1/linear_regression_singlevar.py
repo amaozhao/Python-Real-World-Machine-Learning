@@ -4,7 +4,7 @@ import numpy as np
 from sklearn import linear_model
 import matplotlib.pyplot as plt
 import sklearn.metrics as sm
-import cPickle as pickle
+import pickle
 
 filename = sys.argv[1]
 X = []
@@ -68,14 +68,14 @@ print (
 # Model persistence
 output_model_file = '3_model_linear_regr.pkl'
 
-with open(output_model_file, 'w') as f:
+with open(output_model_file, 'bw') as f:
     pickle.dump(linear_regressor, f)
 
-with open(output_model_file, 'r') as f:
+with open(output_model_file, 'br') as f:
     model_linregr = pickle.load(f)
 
 y_test_pred_new = model_linregr.predict(X_test)
 print (
-    "\nNew mean absolute error =",
+    "New mean absolute error =",
     round(sm.mean_absolute_error(y_test, y_test_pred_new), 2)
 )

@@ -64,7 +64,7 @@ if __name__ == '__main__':
     y = np.array([0, 0, 0, 1, 1, 1, 2, 2, 2])
 
     # initialize the logistic regression classifier
-    classifier = linear_model.LogisticRegression(solver='liblinear', C=100)
+    classifier = linear_model.LogisticRegression(solver='liblinear', C=10000)
 
     # train the classifier
     classifier.fit(X, y)

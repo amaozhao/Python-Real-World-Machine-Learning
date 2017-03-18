@@ -1,6 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
-from sklearn.model_selection import cross_validation
+from sklearn.model_selection import train_test_split
 from sklearn.svm import SVC
 from sklearn.metrics import classification_report
 
@@ -36,7 +36,7 @@ plt.title('Input data')
 ###############################################
 # Train test split and SVM training
 
-X_train, X_test, y_train, y_test = cross_validation.train_test_split(
+X_train, X_test, y_train, y_test = train_test_split(
     X,
     y,
     test_size=0.25,

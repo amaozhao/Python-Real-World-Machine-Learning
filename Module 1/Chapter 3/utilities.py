@@ -1,6 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
-from sklearn.model_selection import cross_validation
+from sklearn.model_selection import cross_val_score
 
 # Load multivar data in the input file
 
@@ -79,7 +79,7 @@ def plot_classifier(classifier, X, y, title='Classifier boundaries', annotate=Fa
 
 
 def print_accuracy_report(classifier, X, y, num_validations=5):
-    accuracy = cross_validation.cross_val_score(
+    accuracy = cross_val_score(
         classifier,
         X,
         y,
@@ -88,7 +88,7 @@ def print_accuracy_report(classifier, X, y, num_validations=5):
     )
     print ("Accuracy: " + str(round(100 * accuracy.mean(), 2)) + "%")
 
-    f1 = cross_validation.cross_val_score(
+    f1 = cross_val_score(
         classifier,
         X,
         y,
@@ -97,7 +97,7 @@ def print_accuracy_report(classifier, X, y, num_validations=5):
     )
     print ("F1: " + str(round(100 * f1.mean(), 2)) + "%")
 
-    precision = cross_validation.cross_val_score(
+    precision = cross_val_score(
         classifier,
         X,
         y,
@@ -106,7 +106,7 @@ def print_accuracy_report(classifier, X, y, num_validations=5):
     )
     print ("Precision: " + str(round(100 * precision.mean(), 2)) + "%")
 
-    recall = cross_validation.cross_val_score(
+    recall = cross_val_score(
         classifier,
         X,
         y,

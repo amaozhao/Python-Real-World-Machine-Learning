@@ -22,7 +22,8 @@ def load_data(input_file):
 # Plot the classifier boundaries on input data
 
 
-def plot_classifier(classifier, X, y, title='Classifier boundaries', annotate=False):
+def plot_classifier(
+        classifier, X, y, title='Classifier boundaries', annotate=False):
     # define ranges to plot the figure
     x_min, x_max = min(X[:, 0]) - 1.0, max(X[:, 0]) + 1.0
     y_min, y_max = min(X[:, 1]) - 1.0, max(X[:, 1]) + 1.0

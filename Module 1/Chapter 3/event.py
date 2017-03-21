@@ -5,8 +5,8 @@ from sklearn import preprocessing
 from sklearn.svm import SVC
 from sklearn.model_selection import cross_val_score
 
-input_file = 'building_event_binary.txt'
-# input_file = 'building_event_multiclass.txt'
+# input_file = 'building_event_binary.txt'
+input_file = 'building_event_multiclass.txt'
 
 # Reading the data
 X = []
@@ -32,7 +32,7 @@ X = X_encoded[:, :-1].astype(int)
 y = X_encoded[:, -1].astype(int)
 
 # Build SVM
-params = {'kernel': 'rbf', 'probability': True, 'class_weight': 'auto'}
+params = {'kernel': 'rbf', 'probability': True, 'class_weight': 'balanced'}
 classifier = SVC(**params)
 classifier.fit(X, y)
 
@@ -59,10 +59,11 @@ for i, item in enumerate(input_data):
         input_data_encoded[i] = int(input_data[i])
     else:
         input_data_encoded[i] = int(
-            label_encoder[count].transform(input_data[i]))
+            label_encoder[count].transform([input_data[i]])
+        )
         count = count + 1
 
-input_data_encoded = np.array(input_data_encoded)
+input_data_encoded = np.array(input_data_encoded).reshape(1, -1)
 
 # Predict and print output for a particular datapoint
 output_class = classifier.predict(input_data_encoded)

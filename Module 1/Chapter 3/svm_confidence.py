@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.svm import SVC
 from sklearn.model_selection import train_test_split
-import utilities 
+import utilities
 
 # Load input data
 input_file = 'data_multivar.txt'
@@ -11,7 +11,12 @@ X, y = utilities.load_data(input_file)
 ###############################################
 # Train test split
 
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.25, random_state=5)
+X_train, X_test, y_train, y_test = train_test_split(
+    X,
+    y,
+    test_size=0.25,
+    random_state=5
+)
 
 params = {'kernel': 'rbf'}
 classifier = SVC(**params)
@@ -46,7 +51,7 @@ for i in input_datapoints:
 utilities.plot_classifier(
     classifier,
     input_datapoints,
-    [0]*len(input_datapoints),
+    [0] * len(input_datapoints),
     'Input datapoints',
     'True'
 )

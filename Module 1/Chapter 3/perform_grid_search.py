@@ -1,8 +1,8 @@
 # import numpy as np
 # import matplotlib.pyplot as plt
-from sklearn import svm, grid_search, cross_validation
+from sklearn import svm
 from sklearn.metrics import classification_report
-
+from sklearn.model_selection import train_test_split, GridSearchCV
 import utilities
 
 # Load input data
@@ -12,7 +12,7 @@ X, y = utilities.load_data(input_file)
 ###############################################
 # Train test split
 
-X_train, X_test, y_train, y_test = cross_validation.train_test_split(
+X_train, X_test, y_train, y_test = train_test_split(
     X, y, test_size=0.25, random_state=5)
 
 # Set the parameters by cross-validation
@@ -37,7 +37,7 @@ metrics = ['precision', 'recall_weighted']
 for metric in metrics:
     print ("\n#### Searching optimal hyperparameters for", metric)
 
-    classifier = grid_search.GridSearchCV(
+    classifier = GridSearchCV(
         svm.SVC(C=1),
         parameter_grid,
         cv=5,

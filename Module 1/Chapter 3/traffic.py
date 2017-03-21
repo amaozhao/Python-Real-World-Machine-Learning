@@ -48,10 +48,11 @@ for i, item in enumerate(input_data):
         input_data_encoded[i] = int(input_data[i])
     else:
         input_data_encoded[i] = int(
-            label_encoder[count].transform(input_data[i]))
+            label_encoder[count].transform([input_data[i]])
+        )
         count = count + 1
 
-input_data_encoded = np.array(input_data_encoded)
+input_data_encoded = np.array(input_data_encoded).reshape(1, -1)
 
 # Predict and print output for a particular datapoint
 print ("Predicted traffic:", int(regressor.predict(input_data_encoded)[0]))

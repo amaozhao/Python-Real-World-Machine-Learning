@@ -15,12 +15,16 @@ for i in range_values:
     # Train the model
     kmeans = KMeans(init='k-means++', n_clusters=i, n_init=10)
     kmeans.fit(data)
-    score = metrics.silhouette_score(data, kmeans.labels_, 
-                metric='euclidean', sample_size=len(data))
+    score = metrics.silhouette_score(
+        data,
+        kmeans.labels_,
+        metric='euclidean',
+        sample_size=len(data)
+    )
 
-    print "\nNumber of clusters =", i
-    print "Silhouette score =", score
-                    
+    print ("\nNumber of clusters =", i)
+    print ("Silhouette score =", score)
+
     scores.append(score)
 
 # Plot scores
@@ -30,7 +34,8 @@ plt.title('Silhouette score vs number of clusters')
 
 # Plot data
 plt.figure()
-plt.scatter(data[:,0], data[:,1], color='k', s=30, marker='o', facecolors='none')
+plt.scatter(data[:, 0], data[:, 1], color='k',
+            s=30, marker='o', facecolors='none')
 x_min, x_max = min(data[:, 0]) - 1, max(data[:, 0]) + 1
 y_min, y_max = min(data[:, 1]) - 1, max(data[:, 1]) + 1
 plt.title('Input data')

@@ -1,8 +1,10 @@
 import numpy as np
-import matplotlib.pyplot as plt
-from sklearn import cross_validation
+# import matplotlib.pyplot as plt
+# from sklearn import cross_validation
 
 # Load multivar data in the input file
+
+
 def load_data(input_file):
     X = []
     with open(input_file, 'r') as f:

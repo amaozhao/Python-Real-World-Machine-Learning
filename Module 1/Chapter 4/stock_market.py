@@ -2,7 +2,7 @@ import json
 import datetime
 
 import numpy as np
-import matplotlib.pyplot as plt
+# import matplotlib.pyplot as plt
 from sklearn import covariance, cluster
 from matplotlib.finance import quotes_historical_yahoo_ochl as quotes_yahoo
 
@@ -19,20 +19,26 @@ with open(symbol_file, 'r') as f:
 
 symbols, names = np.array(list(symbol_dict.items())).T
 
-quotes = [quotes_yahoo(symbol, start_date, end_date, asobject=True) 
-                for symbol in symbols]
+quotes = [
+    quotes_yahoo(
+        symbol,
+        start_date,
+        end_date,
+        asobject=True
+    ) for symbol in symbols
+]
 
 # Extract opening and closing quotes
 opening_quotes = np.array([quote.open for quote in quotes]).astype(np.float)
 closing_quotes = np.array([quote.close for quote in quotes]).astype(np.float)
 
-# The daily fluctuations of the quotes 
+# The daily fluctuations of the quotes
 delta_quotes = closing_quotes - opening_quotes
 
 # Build a graph model from the correlations
 edge_model = covariance.GraphLassoCV()
 
-# Standardize the data 
+# Standardize the data
 X = delta_quotes.copy().T
 X /= X.std(axis=0)
 
@@ -46,5 +52,4 @@ num_labels = labels.max()
 
 # Print the results of clustering
 for i in range(num_labels + 1):
-    print "Cluster", i+1, "-->", ', '.join(names[labels == i])
-
+    print ("Cluster", i + 1, "-->", ', '.join(names[labels == i]))

@@ -1,3 +1,5 @@
+# coding: utf-8
+
 import numpy as np
 from functools import reduce
 
@@ -15,6 +17,7 @@ def sub5(input_array):
 
 
 def function_composer(*args):
+    '''这里类似函数嵌套, 从里到外顺序执行'''
     return reduce(lambda f, g: lambda x: f(g(x)), args)
 
 

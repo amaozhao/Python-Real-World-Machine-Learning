@@ -22,7 +22,7 @@ for i in range_values:
         sample_size=len(data)
     )
 
-    print ("\nNumber of clusters =", i)
+    print ("Number of clusters =", i)
     print ("Silhouette score =", score)
 
     scores.append(score)

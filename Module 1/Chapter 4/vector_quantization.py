@@ -60,10 +60,10 @@ if __name__ == '__main__':
     # Print compression rate
     compression_rate = round(100 * (8.0 - args.num_bits) / 8.0, 2)
     print (
-        "\nThe size of the image will be reduced by a factor of",
+        "The size of the image will be reduced by a factor of",
         8.0 / args.num_bits
     )
-    print ("\nCompression rate = " + str(compression_rate) + "%")
+    print ("Compression rate = " + str(compression_rate) + "%")
 
     # Load input image
     input_image = misc.imread(input_file, True).astype(np.uint8)

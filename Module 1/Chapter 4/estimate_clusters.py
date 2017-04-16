@@ -43,7 +43,7 @@ plt.bar(eps_grid, silhouette_scores, width=0.05, color='k', align='center')
 plt.title('Silhouette score vs epsilon')
 
 # Best params
-print ("\nBest epsilon =", eps_best)
+print ("Best epsilon =", eps_best)
 
 # Associated model and labels for best epsilon
 model = model_best
@@ -57,7 +57,7 @@ if -1 in labels:
 # Number of clusters in the data
 num_clusters = len(set(labels)) - offset
 
-print ("\nEstimated number of clusters =", num_clusters)
+print ("Estimated number of clusters =", num_clusters)
 
 # Extracts the core samples from the trained model
 mask_core = np.zeros(labels.shape, dtype=np.bool)

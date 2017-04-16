@@ -39,10 +39,10 @@ pipeline_classifier.fit(X, y)
 
 # Predict the output
 prediction = pipeline_classifier.predict(X)
-print ("\nPredictions:\n", prediction)
+print ("Predictions:", prediction)
 
 # Print score
-print ("\nScore:", pipeline_classifier.score(X, y))
+print ("Score:", pipeline_classifier.score(X, y))
 
 # Print the selected features chosen by the selector
 features_status = pipeline_classifier.named_steps['selector'].get_support()
@@ -52,6 +52,6 @@ for count, item in enumerate(features_status):
         selected_features.append(count)
 
 print (
-    "\nSelected features (0-indexed):",
+    "Selected features (0-indexed):",
     ', '.join([str(x) for x in selected_features])
 )

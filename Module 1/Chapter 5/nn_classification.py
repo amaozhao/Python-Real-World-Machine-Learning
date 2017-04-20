@@ -53,8 +53,14 @@ plt.pcolormesh(x_grid, y_grid, predicted_values, cmap=cm.Pastel1)
 
 # Overlay the training points on the map
 for i in range(X.shape[0]):
-    plt.scatter(X[i, 0], X[i, 1], marker=mapper[i],
-                s=50, edgecolors='black', facecolors='none')
+    plt.scatter(
+        X[i, 0],
+        X[i, 1],
+        marker=mapper[i],
+        s=50,
+        edgecolors='black',
+        facecolors='none'
+    )
 
 plt.xlim(x_grid.min(), x_grid.max())
 plt.ylim(y_grid.min(), y_grid.max())

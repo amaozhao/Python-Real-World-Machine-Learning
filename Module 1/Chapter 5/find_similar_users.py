@@ -35,6 +35,6 @@ if __name__ == '__main__':
     user = 'John Carson'
     print ("Users similar to " + user + ":\n")
     similar_users = find_similar_users(data, user, 3)
-    print ("User\t\t\tSimilarity score\n")
+    print ("User Similarity score")
     for item in similar_users:
         print (item[0], '\t\t', round(float(item[1]), 2))

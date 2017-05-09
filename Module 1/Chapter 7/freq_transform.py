@@ -14,7 +14,7 @@ len_audio = len(audio)
 # Apply Fourier transform
 transformed_signal = np.fft.fft(audio)
 half_length = np.ceil((len_audio + 1) / 2.0)
-transformed_signal = abs(transformed_signal[0:half_length])
+transformed_signal = abs(transformed_signal[0: int(half_length)])
 transformed_signal /= float(len_audio)
 transformed_signal **= 2
 
@@ -25,7 +25,7 @@ len_ts = len(transformed_signal)
 if len_audio % 2:
     transformed_signal[1:len_ts] *= 2
 else:
-    transformed_signal[1:len_ts-1] *= 2
+    transformed_signal[1:len_ts - 1] *= 2
 
 # Extract power in dB
 power = 10 * np.log10(transformed_signal)
@@ -39,4 +39,3 @@ plt.plot(x_values, power, color='black')
 plt.xlabel('Freq (in kHz)')
 plt.ylabel('Power (in dB)')
 plt.show()
-

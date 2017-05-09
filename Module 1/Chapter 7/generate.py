@@ -21,7 +21,7 @@ noise = 0.4 * np.random.rand(duration * sampling_freq)
 audio += noise
 
 # Scale it to 16-bit integer values
-scaling_factor = pow(2,15) - 1
+scaling_factor = pow(2, 15) - 1
 audio_normalized = audio / np.max(np.abs(audio))
 audio_scaled = np.int16(audio_normalized * scaling_factor)
 

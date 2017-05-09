@@ -1,6 +1,7 @@
 from nltk.tokenize import sent_tokenize
 from nltk.tokenize import word_tokenize
-from nltk.tokenize import PunktWordTokenizer
+# from nltk.tokenize import PunktWordTokenizer
+from nltk.tokenize.punkt import PunktSentenceTokenizer
 from nltk.tokenize import WordPunctTokenizer
 
 text = ("Are you curious about tokenization? " +
@@ -20,9 +21,9 @@ print (word_tokenize(text))
 # Create a new punkt word tokenizer
 
 
-punkt_word_tokenizer = PunktWordTokenizer()
+punkt_sent_tokenizer = PunktSentenceTokenizer()
 print ("Punkt word tokenizer:")
-print (punkt_word_tokenizer.tokenize(text))
+print (punkt_sent_tokenizer.tokenize(text))
 
 
 word_punct_tokenizer = WordPunctTokenizer()

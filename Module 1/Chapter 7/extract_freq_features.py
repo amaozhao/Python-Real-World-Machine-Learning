@@ -1,6 +1,5 @@
-import numpy as np
 import matplotlib.pyplot as plt
-from scipy.io import wavfile 
+from scipy.io import wavfile
 from features import mfcc, logfbank
 
 # Read input sound file
@@ -11,10 +10,10 @@ mfcc_features = mfcc(audio, sampling_freq)
 filterbank_features = logfbank(audio, sampling_freq)
 
 # Print parameters
-print '\nMFCC:\nNumber of windows =', mfcc_features.shape[0]
-print 'Length of each feature =', mfcc_features.shape[1]
-print '\nFilter bank:\nNumber of windows =', filterbank_features.shape[0]
-print 'Length of each feature =', filterbank_features.shape[1]
+print ('MFCC: Number of windows =', mfcc_features.shape[0])
+print ('Length of each feature =', mfcc_features.shape[1])
+print ('Filter bank: Number of windows =', filterbank_features.shape[0])
+print ('Length of each feature =', filterbank_features.shape[1])
 
 # Plot the features
 mfcc_features = mfcc_features.T

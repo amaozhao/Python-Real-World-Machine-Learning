@@ -1,4 +1,3 @@
-import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 
@@ -18,7 +17,8 @@ plt.title('Data overlapped on top of each other')
 
 # Plot the difference
 plt.figure()
-difference = dataframe['1952':'1955']['first'] - dataframe['1952':'1955']['second']
+difference = dataframe['1952':'1955'][
+    'first'] - dataframe['1952':'1955']['second']
 difference.plot()
 plt.title('Difference (first - second)')
 

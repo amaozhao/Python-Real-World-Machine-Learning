@@ -2,8 +2,12 @@ from nltk.stem.porter import PorterStemmer
 from nltk.stem.lancaster import LancasterStemmer
 from nltk.stem.snowball import SnowballStemmer
 
-words = ['table', 'probably', 'wolves', 'playing', 'is',
-         'dog', 'the', 'beaches', 'grounded', 'dreamt', 'envision']
+words = [
+    'table', 'probably', 'wolves',
+    'playing', 'is',
+    'dog', 'the', 'beaches',
+    'grounded', 'dreamt', 'envision'
+]
 
 # Compare different stemmers
 stemmers = ['PORTER', 'LANCASTER', 'SNOWBALL']
